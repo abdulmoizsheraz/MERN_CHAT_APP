@@ -1,9 +1,10 @@
 import express from "express"
-import { newUser } from "../controllers/user.js";
-import { multerUploads } from "../middlewares/multer.js";
+import { newUser,LoginUser } from "../controllers/user.js";
+import {singleAvatar} from "../middlewares/multer.js"
 const app = express.Router();
 
-app.post('/new',multerUploads, newUser);
+app.post('/new',singleAvatar, newUser);
+app.post('/login' , LoginUser)
 
 
 export default app
