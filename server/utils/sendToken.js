@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 // This Configuration is for In case you are testing Locally on Postman etc
-const cookieOptions = {
+ const cookieOptions = {
   domain: "localhost",      
   path: "/user",          
   httpOnly: true,          
@@ -18,4 +18,4 @@ const sendToken = (res, user, code, message) => {
     
   };
   
-  export {sendToken}
+  export {sendToken,cookieOptions}

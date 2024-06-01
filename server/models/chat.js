@@ -1,4 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose, { Schema, model, Types } from "mongoose";
 import { hash } from "bcrypt";
 
 const schema = new Schema(
@@ -8,7 +8,7 @@ const schema = new Schema(
       required: true,
     },
     groupChat: {
-      type: boolean,
+      type: Boolean,
      default:false
     },
     creator: {
@@ -33,4 +33,4 @@ schema.pre("save", async function (next) {
   this.password = await hash(this.password, 10);
 });
 
-export const User = mongoose.models.Chat || model("Chat", schema);
+export const Chat = mongoose.models.Chat || model("Chat", schema);

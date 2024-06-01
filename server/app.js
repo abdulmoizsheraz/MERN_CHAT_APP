@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDB } from "./utils/connectdb.js";
 import userRoutes from "./routes/user.js";
+import chatRoutes from "./routes/chat.js";
 import { errorMiddleware } from "./middlewares/error.js";
 
 dotenv.config({
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/user", userRoutes);
+app.use("/chat", chatRoutes);
 
 // Error Middleware
 app.use(errorMiddleware);

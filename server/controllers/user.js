@@ -1,6 +1,7 @@
 import { compare } from "bcrypt";
 import { User } from "../models/user.js";
 import { sendToken } from "../utils/sendToken.js";
+import { cookieOptions } from "../utils/sendToken.js";
 import { TryCatch } from "../middlewares/error.js";
 import  {ErrorHandler} from "../utils/ErrorHandler.js";
 const newUser = TryCatch(async (req, res) => {
@@ -49,4 +50,18 @@ const getMyProfile = TryCatch(async (req, res, next) => {
   });
 });
 
-export { newUser,login,getMyProfile };
+const Logout = TryCatch(async (req, res, next) => {
+  return res
+  .status(200)
+  .cookie("authToken", null, { ...cookieOptions, maxAge: 0 })
+  .json({
+    success: true,
+    message: "Logged out successfully",
+  });
+});
+const searchUser = TryCatch(async (req, res, next) => {
+
+});
+
+
+export { newUser,login,getMyProfile,Logout,searchUser };
