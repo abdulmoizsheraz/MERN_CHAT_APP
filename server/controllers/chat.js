@@ -12,9 +12,9 @@ const newGroupChat = TryCatch(async (req, res, next) => {
 // const {name,members}=req.body;
 const name="Bianry Brains"
 const members=[
-    "665807761e3c47225fd8587f",
-    "665831a4b6ab067419d436af",
-    "665aee75f4f0b8e308b7d48a"
+    "665c949a0e87ab6e2cb293c2",
+    "665c8c7b54d1cdd09a9fa80a",
+    "665c47da947773ce6c173d27"
   ]
 const allMembers = [...members, req.user];
 await Chat.create({
@@ -32,9 +32,17 @@ await Chat.create({
     success: true,
     message: "Group Created",
   });
-console.log(members,name);
-
 
 })
 
-export {newGroupChat}
+const getMyChats = TryCatch(async (req, res, next) => {
+  const chats = await Chat.find({ members: req.user }).populate(
+    "members",
+    "name avatar"
+  ); // it will give me name and avatar of members of chat only 
+
+});
+
+
+
+export {newGroupChat,getMyChats}

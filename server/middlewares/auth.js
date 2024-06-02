@@ -4,6 +4,7 @@ import { TryCatch } from "../middlewares/error.js";
 import  jwt from "jsonwebtoken";
 const isAuthenticated = TryCatch((req, res, next) => {
     const token = req.cookies["authToken"];
+    console.log(token)
     if (!token)
       return next(new ErrorHandler("Please login to access this route", 401));
   

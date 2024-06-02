@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 // This Configuration is for In case you are testing Locally on Postman etc
  const cookieOptions = {
   domain: "localhost",      
-  path: "/user",          
+  path: "/",          
   httpOnly: true,          
   sameSite: 'None',        
 };
