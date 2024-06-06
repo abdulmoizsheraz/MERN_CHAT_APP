@@ -5,7 +5,7 @@ const schema = new Schema(
   {
     content: {
       type: String,
-      required: true,
+      // required: true,
     },
     sender: {
       type: Schema.Types.ObjectId,
@@ -18,11 +18,11 @@ const schema = new Schema(
     attachment: {
         public_id: {
           type: String,
-          required: true,
+          // required: true,
         },
         url: {
           type: String,
-          required: true,
+          // required: true,
         },
       },
   },
@@ -37,4 +37,4 @@ schema.pre("save", async function (next) {
   this.password = await hash(this.password, 10);
 });
 
-export const User = mongoose.models.Message || model("Message", schema);
+export const Message = mongoose.models.Message || model("Message", schema);
